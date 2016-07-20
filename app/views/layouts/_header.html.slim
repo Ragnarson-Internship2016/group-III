@@ -1,0 +1,23 @@
+.navbar
+  .container
+    .grid.grid-pair
+      .grid-item class="1/4"
+        a.navbar-link href="#"  Board&Roll
+      .grid-item class="3/4"
+        ul.navbar-menu
+          li
+            = link_to '#', data: {toggle: 'tab'} do
+              span
+                = "Events"
+          li
+            = link_to '#', data: {toggle: 'tab'} do
+              span
+                = "User Page"
+          li
+            = link_to '#', data: {toggle: 'tab'} do
+              span
+                = "Sign In"
+          li
+            = link_to '#', data: {toggle: 'tab'} do
+              span
+                = "Sign Up"

@@ -10,6 +10,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'slim'
+gem 'rails-assets-hocus-pocus', source: 'https://rails-assets.org'
 
 gem 'devise'
 gem 'simple_form'
@@ -20,7 +21,7 @@ group :test do
 end
 
 group :development, :test do
-	gem 'rspec-rails', '~> 3.4'
+  gem 'rspec-rails', '~> 3.4'
   gem 'byebug', platform: :mri
 end
 
