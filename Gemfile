@@ -10,11 +10,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'slim'
-gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'devise'
 gem 'simple_form'
 gem 'pundit'
+
+group :test do
+  gem 'shoulda-matchers', '~>3.1'
+end
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.4'
