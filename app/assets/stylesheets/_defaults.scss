@@ -28,12 +28,12 @@ $sticky-footer-height: 6em;
 @import "hocus-pocus";
 
 body {
-  background-image: url("background-image.png");
+  background-image: url(asset-path("background-image.png"));
 }
 
 .logo {
   padding: 25px;
-  @include img-replace('board-and-roll-logo.svg', 200px, 40px);
+  @include img-replace(asset-path('board-and-roll-logo.svg'), 200px, 40px);
 }
 
 .sticky-footer {
