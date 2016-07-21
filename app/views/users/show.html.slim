@@ -1,0 +1,19 @@
+.container
+  .grid.grid-pair
+    .grid-item class="2/4"
+      .box
+        p
+          strong Email:
+          =current_user.email
+        p
+          strong Name:
+          =current_user.name
+        p
+          strong Surname:
+          =current_user.surname
+        p
+          strong City:
+          =current_user.city
+        = link_to edit_user_path(current_user), class: "btn", data: {toggle: 'tab'} do
+          span
+            = "Edit"

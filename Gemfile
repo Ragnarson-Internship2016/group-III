@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim'
 gem 'rails-assets-hocus-pocus', source: 'https://rails-assets.org'
 
+gem 'factory_girl_rails', "~> 4.0"
 gem 'devise'
 gem 'simple_form'
 gem 'pundit'

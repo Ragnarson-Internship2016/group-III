@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   match "/422", to: 'errors#validation_error', via: :all
   devise_for :users
   root to: "home#index"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
 end

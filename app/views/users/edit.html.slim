@@ -1,0 +1,14 @@
+.container
+  h3 Edit your profile
+  .grid.grid-pair
+    .grid-item class="4/4"
+      =form_for(current_user) do |edit|
+        =edit.label :name
+        =edit.text_field :name
+        =edit.label :surname
+        =edit.text_field :surname
+        =edit.label :city
+        =edit.text_field :city
+        br
+        br
+        =edit.submit "Submit"
