@@ -110,6 +110,10 @@ GEM
       railties (= 5.0.0)
       sprockets-rails (>= 2.0.0)
     rails-assets-hocus-pocus (0.2.10)
+    rails-controller-testing (0.1.1)
+      actionpack (~> 5.x)
+      actionview (~> 5.x)
+      activesupport (~> 5.x)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
@@ -203,6 +207,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.0.0)
   rails-assets-hocus-pocus!
+  rails-controller-testing
   rspec-rails (~> 3.4)
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)

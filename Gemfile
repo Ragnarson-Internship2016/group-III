@@ -24,6 +24,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'byebug', platform: :mri
+  gem 'rails-controller-testing'
 end
 
 group :development do

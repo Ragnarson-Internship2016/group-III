@@ -1,0 +1,22 @@
+p#notice= notice
+p
+  strong Name:
+  = @event.name
+p
+  strong Description:
+  = @event.description
+p
+  strong City:
+  = @event.city
+p
+  strong Address:
+  = @event.address
+p
+  strong Start t:
+  = @event.start_t
+p
+  strong End t:
+  = @event.end_t
+= link_to 'Edit', edit_event_path(@event)
+| \
+= link_to 'Back', events_path
