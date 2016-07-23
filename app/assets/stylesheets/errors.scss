@@ -1,0 +1,45 @@
+@import "_defaults.scss";
+
+$not_found_image: asset-path('404.svg');
+$validation_error_image: asset-path('422.svg');
+
+.my-svg-container {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  padding-bottom: 41%;
+  vertical-align: middle;
+}
+
+.my-svg {
+  display: block;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+}
+
+@include rwd('mobile') {
+  h2 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
+@include rwd('tablet') {
+  h2 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.not_found_logo {
+  @include img-replace($not_found_image, 100%, 100%);
+}
+
+.validation_error_logo {
+  @include img-replace($validation_error_image, 100%, 100%);
+}

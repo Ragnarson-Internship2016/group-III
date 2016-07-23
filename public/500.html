@@ -2,9 +2,62 @@
 <html>
   <head>
     <title>We're sorry, but something went wrong (500)</title>
+    <style>
+    .my-svg-container {
+      display: inline-block;
+      position: relative;
+      width: 50%;
+      padding-bottom: 41%;
+      vertical-align: middle;
+      max-width: 300px;
+      min-height: 200px;
+      align-self: center;
+    }
+    .my-svg {
+      display: block;
+      position: absolute;
+    }
+    .server_error_logo {
+      background-repeat: no-repeat;
+      background-image: url("500.svg");
+      width: 100%;
+      height: 100%;
+      text-indent: -9999px;
+      white-space: nowrap;
+    }
+    .text-container {
+      align-self: center;
+    }
+    .container {
+      margin-top: 40px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      min-width: 200px;
+    }
+    @media only screen and (max-device-width: 720px) {
+      .container {
+        flex-direction: column;
+      }
+      .text-container {
+        min-width: 200px;
+        font-size: 10px;
+      }
+      .my-svg-container {
+        min-width: 150px;
+      }
+    }
+    </style>
   </head>
   <body>
-    <h1>We're sorry, but something went wrong.</h1>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="container">
+      <div class="my-svg-container">
+        <img class="my-svg server_error_logo" />
+      </div>
+      <div class="text-container">
+        <h1>We're sorry, but something went wrong.</h1>
+        <p>If you are the application owner check the logs for more information.</p>
+      </div>
+    </div>
   </body>
 </html>
