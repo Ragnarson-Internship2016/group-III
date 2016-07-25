@@ -1,22 +1,29 @@
 p#notice= notice
-p
-  strong Name:
-  = @event.name
-p
-  strong Description:
-  = @event.description
-p
-  strong City:
-  = @event.city
-p
-  strong Address:
-  = @event.address
-p
-  strong Start t:
-  = @event.start_t
-p
-  strong End t:
-  = @event.end_t
-= link_to 'Edit', edit_event_path(@event)
-| \
-= link_to 'Back', events_path
+.container
+  div class="box bg-white img-rounded"
+    h2.no-margin-top = @event.name
+    small Description:
+    strong
+      .text-field = @event.description
+    small City:
+    strong
+      .text-field = @event.city
+    small Address:
+    strong
+      .text-field = @event.address
+    small Starts at:
+    strong
+      .text-field = @event.start_t.strftime("%d/%m/%Y %H:%M")
+    small Ends at:
+    strong
+      .text-field = @event.end_t.strftime("%d/%m/%Y %H:%M")
+.container.padding
+  .event-buttons
+    -if current_user
+      = link_to edit_event_path(@event)
+        div class="btn text-white"
+          = 'Edit'
+    span &#9;
+    = link_to events_path
+      div class="btn text-white"
+        = 'Back'

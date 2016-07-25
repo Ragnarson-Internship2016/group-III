@@ -6,7 +6,7 @@ $rwd-map: (mobile: 480px, tablet: 720px, desktop: 1201px);
 
 $grid-container: 70rem;
 $ui-border-radius: 25px;
-$spacing-unit: 1.5em;
+$spacing-unit: 2em;
 $vertical-align-body: 16 !default;
 
 $navbar-background: transparent;
@@ -24,6 +24,15 @@ $font-size-lead: 20 !default;
 $font-size-btn: $font-size-base !default;
 
 $sticky-footer-height: 6em;
+
+$spacing-map: (
+  'quarter': quarter($spacing-unit),
+  'third': third($spacing-unit),
+  'half': halve($spacing-unit),
+  'double': double($spacing-unit),
+  'triple': triple($spacing-unit),
+  'quadruple': quadruple($spacing-unit)
+);
 
 @import "hocus-pocus";
 
@@ -44,4 +53,25 @@ body {
   bottom: 0;
   clear: both;
   overflow-x: hidden;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.event-buttons {
+  margin-bottom: quater($spacing-unit);
+  padding-top: quater($spacing-unit);
+  padding-bottom: quater($spacing-unit);
+
+  > .container > .grid > .grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+}
+
+.text-field {
+  margin: 0.5em;
+  margin-left: 1em;
 }
