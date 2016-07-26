@@ -8,6 +8,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     = render 'layouts/header'
+    .margin-left
+      - unless alert.blank?
+        p.alert = alert
     div class="margin no-padding"
       = yield
     = render 'layouts/footer'
