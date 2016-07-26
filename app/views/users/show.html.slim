@@ -1,19 +1,40 @@
 .container
-  .grid.grid-pair
-    .grid-item class="2/4"
-      .box
-        p
-          strong Email:
-          =current_user.email
-        p
-          strong Name:
-          =current_user.name
-        p
-          strong Surname:
-          =current_user.surname
-        p
-          strong City:
-          =current_user.city
-        = link_to edit_user_path(current_user), class: "btn", data: {toggle: 'tab'} do
-          span
-            = "Edit"
+  .title Your profile
+  hr
+  div class="box grid"
+    .grid-item class="2/5 mobile-1/1"
+      .my-svg-container
+        object.my-svg.avatar
+    .grid-item class="3/5 mobile-1/1"
+      table.table-zebra
+        colgroup
+          col class="1/4"
+          col class="1/4"
+          col class="1/2"
+        tbody
+          tr
+            td
+              strong Email:
+            td 
+              =current_user.email
+          tr
+            td
+              strong Name:
+            td 
+              =current_user.name
+          tr
+            td
+              strong Surname:
+            td
+              =current_user.surname
+          tr
+            td
+              strong City:
+            td
+              =current_user.city
+          tfoot
+            tr
+              td
+              td class="float-right"
+                = link_to edit_user_path(current_user), class: "btn", data: {toggle: 'tab'} do
+                  = "Edit"

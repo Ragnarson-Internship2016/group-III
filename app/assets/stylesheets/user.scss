@@ -1,0 +1,18 @@
+@import "_defaults.scss";
+
+$avatar_image: asset-path('user_profile_1.svg');
+
+.avatar {
+  @include img-replace($avatar_image, 100%, 100%);
+}
+
+.my-svg-container {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+}
+
+.my-svg {
+  display: block;
+  position: absolute;
+}
