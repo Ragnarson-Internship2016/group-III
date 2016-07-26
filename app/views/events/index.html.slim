@@ -1,32 +1,45 @@
 p#notice= notice
 h1 Events
-- @events.each do |event|
-    .container
-      div class="padding-quarter"
-        div class="box bg-white img-rounded"
-          .grid.grid-pair
-            .grid-item class="4/4"
-                div class="grid grid-pair grid-middle"
-                  div class="grid-item 2/3"
-                    strong
-                      text #{event.name}
-                      text  | #{event.city}
-                      text  | #{event.address}
-                      text  | #{event.start_t.strftime("Starts: %d/%m/%Y %H:%M")}
-                    .text-field
-                    small #{event.description.truncate_words(30)}
-                  div class="horizontal-left grid-item 1/3"
-                    = link_to event do
-                      div class="btn text-white"
-                        = 'Show'
-                    - if policy(event).edit?
-                      = link_to edit_event_path(event)
-                        div class="btn text-white"
-                          = 'Edit'
-                    - if policy(event).destroy?
-                      = link_to event, method: :delete, data: { confirm: 'Are you sure?' }
-                        div class="btn text-white"
-                          = 'Destroy'
+form#filter-form
+  | Filter:
+  input#filter maxlength="20" name="filter" size="20" type="text" value=""
+table.event_review
+  thead
+    tr
+      th colspan="2"
+    tr
+  - @events.each do |event|
+    tbody
+      tr style=("display: table-row;")
+      tr
+        td
+          .container
+            div class="padding-quarter"
+              div class="box bg-white img-rounded"
+                .grid.grid-pair
+                  .grid-item class="4/4"
+                      div class="grid grid-pair grid-middle"
+                        div class="grid-item 2/3"
+                          strong
+                            text #{event.name}
+                            text  | #{event.city}
+                            text  | #{event.address}
+                            text  | #{event.start_t.strftime("Starts: %d/%m/%Y %H:%M")}
+                          .text-field
+                          small #{event.description.truncate_words(30)}
+                        div class="horizontal-left grid-item 1/3"
+                          = link_to event do
+                            div class="btn text-white"
+                              = 'Show'
+                          - if policy(event).edit?
+                            = link_to edit_event_path(event)
+                              div class="btn text-white"
+                                = 'Edit'
+                          - if policy(event).destroy?
+                            = link_to event, method: :delete, data: { confirm: 'Are you sure?' }
+                              div class="btn text-white"
+                                = 'Destroy'
+                                
 .container
   - if current_user
     .padding-half
