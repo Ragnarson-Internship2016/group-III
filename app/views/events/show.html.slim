@@ -19,10 +19,14 @@ p#notice= notice
       .text-field = @event.end_t.strftime("%d/%m/%Y %H:%M")
 .container.padding
   .event-buttons
-    -if current_user
+    - if policy(@event).edit?
       = link_to edit_event_path(@event)
         div class="btn text-white"
           = 'Edit'
+    - if policy(@event).destroy?
+      = link_to @event, method: :delete, data: { confirm: 'Are you sure?' }
+        div class="btn text-white"
+          = 'Destroy'
     span &#9;
     = link_to events_path
       div class="btn text-white"

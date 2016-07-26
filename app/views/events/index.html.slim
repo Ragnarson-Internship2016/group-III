@@ -19,8 +19,16 @@ h1 Events
                     = link_to event do
                       div class="btn text-white"
                         = 'Show'
+                    - if policy(event).edit?
+                      = link_to edit_event_path(event)
+                        div class="btn text-white"
+                          = 'Edit'
+                    - if policy(event).destroy?
+                      = link_to event, method: :delete, data: { confirm: 'Are you sure?' }
+                        div class="btn text-white"
+                          = 'Destroy'
 .container
-  -if current_user
+  - if current_user
     .padding-half
       = link_to new_event_path
         div class="btn text-white"
