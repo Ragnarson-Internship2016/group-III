@@ -1,0 +1,40 @@
+@import "_defaults.scss";
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.form {
+  margin-left: 50px;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.button-holder {
+  margin-top: 5px;
+  text-align: right;
+  margin-right: 0;
+}
+
+.label {
+  padding: 5px 0px 5px 5px;
+  word-wrap: nowrap;
+}
+
+.box-negative {
+  width: 50%;
+  padding-left: 5px;
+}
+
+a:hover {
+  color: black;
+}
+
+.button-padding {
+  padding-left: 8px;
+}
+
+.form-width {
+  width: 100%;
+}
