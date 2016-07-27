@@ -59,6 +59,10 @@ a:link {
   text-decoration: none;
 }
 
+a {
+  color: $color-black;
+}
+
 .event-buttons {
   margin-bottom: quater($spacing-unit);
   padding-top: quater($spacing-unit);
