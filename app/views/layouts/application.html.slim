@@ -7,10 +7,10 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render 'layouts/header'
+    = render 'layouts/header' unless @skip_header
     .margin-left
       - unless alert.blank?
         p.alert = alert
     div class="margin no-padding"
       = yield
-    = render 'layouts/footer'
+    = render 'layouts/footer' unless @skip_footer

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
   get "about", to: "static_pages#about"
   resources :users
-  root to: "events#index"
+  root to: "static_pages#landing_page"
   resources :events
 end

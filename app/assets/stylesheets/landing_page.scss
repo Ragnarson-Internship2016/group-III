@@ -1,0 +1,70 @@
+@import "_defaults.scss";
+
+$landing-page-image: asset-path('landing_page4.png');
+
+$margin-left: 100px;
+
+.body {
+  background-image: url($landing-page-image);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.logo-holder {
+  margin-left: $margin-left;
+  margin-top: 30px;
+}
+
+.title-holder {
+  text-align: left;
+  margin-top: 150px;
+  margin-left: $margin-left;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.subtitle-item {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.holder {
+  width: 33.3%;
+  margin: auto;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.bgc-black {
+  background-color: $color-black;
+
+  &:hover {
+    background-color: lighten($color-btn, 5%);
+  }
+}
+
+.btn2 {
+  @include font-size($font-size-btn);
+  display: inline-block;
+  margin: 0;
+  border: 0;
+  border-bottom-style: solid;
+  border-radius: $ui-border-radius;
+  border-bottom-color: darken($color-btn, 25%);
+  background-color: $color-black;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+
+  &:hover {
+    background-color: lighten($color-btn, 5%);
+  }
+}

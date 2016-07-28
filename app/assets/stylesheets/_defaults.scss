@@ -25,6 +25,8 @@ $font-size-btn: $font-size-base !default;
 
 $sticky-footer-height: 6em;
 
+$logo-image: asset-path('board-and-roll-logo.svg');
+
 $spacing-map: (
   'quarter': quarter($spacing-unit),
   'third': third($spacing-unit),
@@ -42,7 +44,7 @@ body {
 
 .logo {
   padding: 25px;
-  @include img-replace(asset-path('board-and-roll-logo.svg'), 200px, 40px);
+  @include img-replace($logo-image, 200px, 40px);
 }
 
 .sticky-footer {
