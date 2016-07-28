@@ -12,7 +12,7 @@ RSpec.describe Event, type: :model do
   end
 
   context "validates time params" do
-    let(:user) { User.create!(name: "Username", surname: "Usersurname", city: "Lodz", email: "a@a.a", password: "password")}
+    let(:user) { User.create!(name: "Username", surname: "Usersurname", city: "Lodz", email: "a@a.a", password: "password", confirmed_at: DateTime.now)}
 
     let(:valid_attributes) {
       {

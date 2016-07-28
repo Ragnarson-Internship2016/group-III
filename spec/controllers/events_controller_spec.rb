@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
-  let(:user) { User.create!(name: "Username", surname: "Usersurname", city: "Lodz", email: "a@a.a", password: "password") }
+  let(:user) { User.create!(name: "Username", surname: "Usersurname", city: "Lodz", email: "a@a.a", password: "password", confirmed_at: DateTime.now) }
 
   let(:valid_attributes) {
     {

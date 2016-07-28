@@ -9,6 +9,14 @@ RSpec.describe UsersController, type: :controller do
       { :name => "new name", :surname => "new surname", :city => "new city" }
     end
 
+    before do
+      sign_in user
+    end
+
+    after do
+      sign_out user
+    end
+
     it "checks if update changes parameters" do
       put :update, params: { id: user.id, user: user_new_parameters }
       user.reload

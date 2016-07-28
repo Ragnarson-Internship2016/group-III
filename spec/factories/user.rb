@@ -4,7 +4,7 @@ FactoryGirl.define do
     surname 'Polo'
     city 'Lolopolo'
     email 'lolopolo@example.com'
-    id 1
     password 'lolopolo'
+    confirmed_at DateTime.now
   end
 end
