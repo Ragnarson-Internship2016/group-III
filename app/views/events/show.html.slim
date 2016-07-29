@@ -1,4 +1,5 @@
-p#notice= notice
+.box-positive
+  p#notice= notice
 .container
   div class="box event-bg img-rounded"
     h2.no-margin-top = @event.name
@@ -19,28 +20,30 @@ p#notice= notice
       .text-field = @event.end_t.strftime("%d/%m/%Y %H:%M")
 .container.padding
   .event-buttons
-    - if policy(@event).edit?
-      = link_to edit_event_path(@event)
-        div class="btn"
-          = 'Edit'
-    - if policy(@event).destroy?
-      = link_to @event, method: :delete, data: { confirm: 'Are you sure?' }
-        div class="btn"
-          = 'Destroy'
-    -if current_user && !@event.owner_or_attender?(current_user)
-      = link_to join_event_path(@event), method: :post
-        div class="btn text-white"
-          = 'Join'
-    -if current_user && @event.attender?(current_user) && !@event.owner?(current_user)
-      = link_to leave_event_path(@event), method: :post
-        div class="btn text-white"
-          = 'Leave'
-    span
-    = link_to events_path
-      div class="btn"
-        = 'Back'
-    - if policy(@event).event_host?
-      = link_to "Add Game", new_event_game_path(@event), class: 'btn float-right'
+    ul class="list-inline"
+      li
+        - if policy(@event).edit?
+          = link_to edit_event_path(@event)
+            div class="btn text-white"
+              = 'Edit'
+      - if policy(@event).destroy?
+        li
+          = link_to @event, method: :delete, data: { confirm: 'Are you sure?' }
+            div class="btn text-white"
+              = 'Destroy'
+      -if current_user && !@event.owner_or_attender?(current_user)
+        li
+          = link_to join_event_path(@event), method: :post
+            div class="btn text-white"
+              = 'Join'
+      -if current_user && @event.attender?(current_user) && !@event.owner?(current_user)
+        li
+          = link_to leave_event_path(@event), method: :post
+            div class="btn text-white"
+              = 'Leave'
+      span
+      - if policy(@event).event_host?
+        = link_to "Add Game", new_event_game_path(@event), class: 'btn float-right'
 
 .container
   - if @event.games.empty?
@@ -99,4 +102,4 @@ p#notice= notice
               = f.submit 'Add', class: 'btn add-comment-button'
           = f.hidden_field :commentable_id, value: @event.id
           = f.hidden_field :commentable_type, value: @event.class.name
-        
+

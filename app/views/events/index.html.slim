@@ -6,7 +6,7 @@
       | Events
     hr
     form#filter-form.filter-holder
-      | Search: 
+      | Search:
       input#filter maxlength="20" name="filter" size="20" type="text" value=""
     table.event_review
       thead
@@ -23,8 +23,8 @@
                   div class="box img-rounded event-bg"
                     .grid.grid-pair
                       .grid-item class="4/4"
-                          div class="grid grid-pair grid-middle"
-                            div class="grid-item 2/3"
+                          div class="grid"
+                            div class="grid-item 1/1"
                               strong
                                 text.color-red #{event.name}
                                 text  | #{event.city}
@@ -32,19 +32,24 @@
                                 text  | #{event.start_t.strftime("Starts: %d/%m/%Y %H:%M")}
                               .text-field
                               small #{event.description.truncate_words(30)}
-                            div class="horizontal-left grid-item 1/3"
-                              = link_to event do
-                                div class="btn"
-                                  = 'Show'
-                              - if policy(event).edit?
-                                = link_to edit_event_path(event)
-                                  div class="btn"
-                                    = 'Edit'
-                              - if policy(event).destroy?
-                                = link_to event, method: :delete, data: { confirm: 'Are you sure?' }
-                                  div class="btn"
-                                    = 'Destroy'
-                              
+                            div class="grid-item 1/1"
+                              .padding-half-top
+                                ul class="list-inline"
+                                  li
+                                    = link_to event do
+                                      div class="btn text-white"
+                                        = 'Show'
+                                  li
+                                    - if policy(event).edit?
+                                      = link_to edit_event_path(event)
+                                        div class="btn text-white"
+                                          = 'Edit'
+                                  li
+                                    - if policy(event).destroy?
+                                      = link_to event, method: :delete, data: { confirm: 'Are you sure?' }
+                                        div class="btn text-white"
+                                          = 'Destroy'
+
 .container
   - if current_user
     .padding-half
