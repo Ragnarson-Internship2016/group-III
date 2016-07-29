@@ -9,9 +9,8 @@ RSpec.describe EventsController, type: :controller do
       description: "We are going to have so much fun playing games!",
       city: "Lodz",
       address: "Piotrkowska 217",
-      start_t: DateTime.parse("09/08/2016 17:00"),
-      end_t: DateTime.parse("09/08/2016 22:00"),
-      user_id: user.id
+      start_t: DateTime.parse("09/09/2016 17:00"),
+      end_t: DateTime.parse("09/09/2016 22:00"),
     }
   }
 
@@ -23,7 +22,6 @@ RSpec.describe EventsController, type: :controller do
       address: "",
       start_t: DateTime.parse("09/08/2016 17:00"),
       end_t: DateTime.parse("09/08/2016 18:00"),
-      user_id: user.id
     }
   }
 
@@ -90,6 +88,7 @@ RSpec.describe EventsController, type: :controller do
     context "logged in" do
       before do
         sign_in(user)
+        UserEvent.create!(user_id: user.id, event_id: event.id, owner: true)
         get :edit, params: { id: event.to_param }
       end
 
@@ -183,13 +182,13 @@ RSpec.describe EventsController, type: :controller do
           address: "Piotrkowska 217",
           start_t: DateTime.parse("09/08/2016 17:00"),
           end_t: DateTime.parse("09/08/2016 18:00"),
-          user_id: user.id
         }
       }
 
       context "logged in" do
         before do
           sign_in(user)
+          UserEvent.create!(user_id: user.id, event_id: event.id, owner: true)
           put :update, params: {id: event.to_param, event: new_attributes}
         end
 
@@ -208,6 +207,7 @@ RSpec.describe EventsController, type: :controller do
 
       context "not logged in" do
         it "doesn't update the requested event" do
+
           put :update, params: {id: event.to_param, event: valid_attributes}
           expect(response).to redirect_to(new_user_session_path)
         end
@@ -217,6 +217,7 @@ RSpec.describe EventsController, type: :controller do
     context "with missing param and logged in user"  do
       before do
         sign_in(user)
+        UserEvent.create!(user_id: user.id, event_id: event.id, owner: true)
         put :update, params: {id: event.to_param, event: invalid_attributes}
       end
 
@@ -246,6 +247,7 @@ RSpec.describe EventsController, type: :controller do
 
       it "destroys the requested event" do
         event = Event.create!(valid_attributes)
+        UserEvent.create!(user_id: user.id, event_id: event.id, owner: true)
         expect {
           delete :destroy, params: {id: event.to_param}
         }.to change(Event, :count).by(-1)
@@ -253,8 +255,9 @@ RSpec.describe EventsController, type: :controller do
 
       it "redirects to the events list" do
         event = Event.create!(valid_attributes)
+        eventuser= UserEvent.create!(user_id: user.id, event_id: event.id, owner: true)
         delete :destroy, params: {id: event.to_param}
-        expect(response).to redirect_to(events_url)
+        expect(response).to redirect_to(events_path)
       end
     end
 

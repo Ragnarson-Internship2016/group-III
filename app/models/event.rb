@@ -1,8 +1,23 @@
 class Event < ApplicationRecord
-  belongs_to :user
+  has_many :user_events
+  has_many :users, through: :user_events
+  has_one :owner_user_event, -> { merge(UserEvent.owner) }, class_name: "UserEvent"
+  has_one :owner, through: :owner_user_event, source: :user
 
-  validates :name, :description, :city, :address, :start_t, :end_t, :user_id, presence: true
+  validates :name, :description, :city, :address, :start_t, :end_t, presence: true
   validate :validate_time_params
+
+  def owner_or_attender?(user)
+    owner?(user) || attender?(user)
+  end
+
+  def owner?(user)
+    user == owner
+  end
+
+  def attender?(user)
+    users.include?(user)
+  end
 
   private
 

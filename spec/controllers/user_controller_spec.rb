@@ -18,6 +18,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "checks if update changes parameters" do
+      sign_in user
       put :update, params: { id: user.id, user: user_new_parameters }
       user.reload
       expect(user.name).to eql user_new_parameters[:name]

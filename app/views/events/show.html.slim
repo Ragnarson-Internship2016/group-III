@@ -27,7 +27,15 @@ p#notice= notice
       = link_to @event, method: :delete, data: { confirm: 'Are you sure?' }
         div class="btn text-white"
           = 'Destroy'
-    span &#9;
+    -if current_user && !@event.owner_or_attender?(current_user)
+      = link_to join_event_path(@event), method: :post
+        div class="btn text-white"
+          = 'Join'
+    -if current_user && @event.attender?(current_user) && !@event.owner?(current_user)
+      = link_to leave_event_path(@event), method: :post
+        div class="btn text-white"
+          = 'Leave'
+    span
     = link_to events_path
       div class="btn text-white"
         = 'Back'

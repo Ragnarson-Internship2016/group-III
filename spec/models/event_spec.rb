@@ -8,19 +8,16 @@ RSpec.describe Event, type: :model do
     it { is_expected.to validate_presence_of(:address) }
     it { is_expected.to validate_presence_of(:start_t) }
     it { is_expected.to validate_presence_of(:end_t) }
-    it { is_expected.to validate_presence_of(:user_id) }
   end
 
   context "validates time params" do
     let(:user) { User.create!(name: "Username", surname: "Usersurname", city: "Lodz", email: "a@a.a", password: "password", confirmed_at: DateTime.now)}
-
     let(:valid_attributes) {
       {
         name: "Dungeon Games",
         description: "We are going to have so much fun playing games!",
         city: "Lodz",
         address: "Piotrkowska 217",
-        user_id: user.id
       }
     }
 

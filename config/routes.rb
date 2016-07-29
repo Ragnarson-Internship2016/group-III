@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
   resources :users
   root to: "static_pages#landing_page"
-  resources :events
+  resources :events do
+    post :join, on: :member
+    post :leave, on: :member
+  end
 end

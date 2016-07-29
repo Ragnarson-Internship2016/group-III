@@ -1,26 +1,26 @@
-class EventPolicy
-  attr_reader :user, :event
-
-  def initialize(user, event)
-    @user = user
-    @event = event
-  end
-
+class EventPolicy < ApplicationPolicy
   def edit?
-    event_host?
+    unless eventuser.nil?
+      eventuser.owner?
+    end
   end
 
   def update?
-    event_host?
+    unless eventuser.nil?
+      eventuser.owner?
+    end
   end
 
   def destroy?
-    event_host?
+    unless eventuser.nil?
+      eventuser.owner?
+    end
   end
 
   private
 
-  def event_host?
-    user == event.user
+  def eventuser
+    return nil unless user
+    UserEvent.find_by(user_id: user.id, event_id: record.id)
   end
 end
