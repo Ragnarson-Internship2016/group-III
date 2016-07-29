@@ -6,7 +6,8 @@ class ApplicationPolicy
     @record = record
   end
 
-  def game_host?
+  def event_participant?
+    return false unless user
     record.event.users.includes(user)
   end
 

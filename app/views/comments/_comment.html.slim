@@ -1,0 +1,8 @@
+.container
+  div class="box event-bg img-rounded"
+    span.text-bold
+      = comment.user.email
+    span.text-muted.time-margin
+      = time_ago_in_words(comment.created_at.to_datetime)
+    .panel-body
+      = comment.comment

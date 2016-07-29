@@ -17,6 +17,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'pundit'
 gem 'bgg'
+gem 'acts_as_commentable'
 
 group :test do
   gem 'shoulda-matchers', '~>3.1'

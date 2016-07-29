@@ -1,13 +1,13 @@
 class GamePolicy < ApplicationPolicy
   def edit?
-    game_host?
+    event_participant?
   end
 
   def update?
-    game_host?
+    event_participant?
   end
 
   def destroy?
-    game_host?
+    event_participant?
   end
 end

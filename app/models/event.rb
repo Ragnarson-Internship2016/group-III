@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   has_one :owner_user_event, -> { merge(UserEvent.owner) }, class_name: "UserEvent"
   has_one :owner, through: :owner_user_event, source: :user
   has_many :games, dependent: :destroy
+  acts_as_commentable
 
   validates :name, :description, :city, :address, :start_t, :end_t, presence: true
   validate :validate_time_params
