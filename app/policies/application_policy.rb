@@ -8,7 +8,7 @@ class ApplicationPolicy
 
   def event_participant?
     return false unless user
-    record.event.users.includes(user)
+    record.event.users.include?(user)
   end
 
   def event_host?
