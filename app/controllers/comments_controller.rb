@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    authorize @comment
     if @comment.save
       redirect_to :back, notice: 'Comment added.'
     else

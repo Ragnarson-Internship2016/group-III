@@ -1,7 +1,10 @@
 .container
   div class="box event-bg img-rounded"
     span.text-bold
-      = comment.user.email
+      - if comment.user.present?
+        = comment.user.email
+      - else
+        | Anonymous
     span.text-muted.time-margin
       = time_ago_in_words(comment.created_at.to_datetime)
     .panel-body
