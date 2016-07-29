@@ -2,28 +2,15 @@
 
  $link-color: $color-black;
 
-a {
-  text-decoration: none;
-  color: $color-black;
-}
-
 .contact-mail {
   padding: 5px;
 }
 
 .contact-mail:hover {
   background-color: $color-black;
-  border-radius: 25px;
-}
-
-a:hover {
-  color: $color-white;
+  border-radius: $ui-border-radius;
 }
 
 .list-menu {
   max-width: 200px;
-}
-
-.menu-item:hover {
-  background-color: $color-black !important;
 }

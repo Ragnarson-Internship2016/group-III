@@ -1,5 +1,5 @@
 .container
-  .box
+  .box class="no-padding-top"
     .box-positive
       p#notice= notice
     .title
@@ -20,13 +20,13 @@
             td
               .container
                 div class="padding"
-                  div class="box bg-white img-rounded"
+                  div class="box img-rounded event-bg"
                     .grid.grid-pair
                       .grid-item class="4/4"
                           div class="grid grid-pair grid-middle"
                             div class="grid-item 2/3"
                               strong
-                                text #{event.name}
+                                text.color-red #{event.name}
                                 text  | #{event.city}
                                 text  | #{event.address}
                                 text  | #{event.start_t.strftime("Starts: %d/%m/%Y %H:%M")}
@@ -34,20 +34,20 @@
                               small #{event.description.truncate_words(30)}
                             div class="horizontal-left grid-item 1/3"
                               = link_to event do
-                                div class="btn text-white"
+                                div class="btn"
                                   = 'Show'
                               - if policy(event).edit?
                                 = link_to edit_event_path(event)
-                                  div class="btn text-white"
+                                  div class="btn"
                                     = 'Edit'
                               - if policy(event).destroy?
                                 = link_to event, method: :delete, data: { confirm: 'Are you sure?' }
-                                  div class="btn text-white"
+                                  div class="btn"
                                     = 'Destroy'
                               
 .container
   - if current_user
     .padding-half
       = link_to new_event_path
-        div class="btn text-white"
+        div class="btn"
           = 'New Event'

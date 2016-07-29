@@ -1,6 +1,6 @@
 p#notice= notice
 .container
-  div class="box bg-white img-rounded"
+  div class="box event-bg img-rounded"
     h2.no-margin-top = @event.name
     small Description:
     strong
@@ -21,11 +21,11 @@ p#notice= notice
   .event-buttons
     - if policy(@event).edit?
       = link_to edit_event_path(@event)
-        div class="btn text-white"
+        div class="btn"
           = 'Edit'
     - if policy(@event).destroy?
       = link_to @event, method: :delete, data: { confirm: 'Are you sure?' }
-        div class="btn text-white"
+        div class="btn"
           = 'Destroy'
     -if current_user && !@event.owner_or_attender?(current_user)
       = link_to join_event_path(@event), method: :post
@@ -37,5 +37,5 @@ p#notice= notice
           = 'Leave'
     span
     = link_to events_path
-      div class="btn text-white"
+      div class="btn"
         = 'Back'

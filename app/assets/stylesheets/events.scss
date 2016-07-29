@@ -11,6 +11,14 @@
 }
 
 #filter {
-  border-radius: 25px;
+  border-radius: 6px;
   margin-bottom: 0px;
+}
+
+.event-bg {
+  background-color: $event-bg-color;
+}
+
+.color-red {
+  color: $logo-red;
 }

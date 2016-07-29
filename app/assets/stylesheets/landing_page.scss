@@ -1,6 +1,6 @@
 @import "_defaults.scss";
 
-$landing-page-image: asset-path('landing_page4.png');
+$landing-page-image: asset-path('landing_page4_pattern.png');
 
 $margin-left: 100px;
 
@@ -15,8 +15,8 @@ $margin-left: 100px;
 }
 
 .logo-holder {
-  margin-left: $margin-left;
   margin-top: 30px;
+  margin-left: $margin-left;
 }
 
 .title-holder {
@@ -42,9 +42,9 @@ $margin-left: 100px;
 
 .bgc-black {
   background-color: $color-black;
-
+  border-radius: $ui-border-radius;
   &:hover {
-    background-color: lighten($color-btn, 5%);
+    background-color: lighten($color-btn, 20%);
   }
 }
 
@@ -54,17 +54,11 @@ $margin-left: 100px;
   margin: 0;
   border: 0;
   border-bottom-style: solid;
-  border-radius: $ui-border-radius;
-  border-bottom-color: darken($color-btn, 25%);
-  background-color: $color-black;
+  background-color: transparent;
   color: $color-white;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
   width: 100%;
   padding: 10px 0px 10px 0px;
-
-  &:hover {
-    background-color: lighten($color-btn, 5%);
-  }
 }

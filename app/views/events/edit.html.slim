@@ -1,9 +1,12 @@
-p#notice= notice
-.padding-bottom
-  div class="box bg-white img-rounded padding"
-    h2.no-margin-top Editing Event
-    = render 'form', event: @event
-    .event-buttons
-      = link_to events_path
-        div class="btn text-white"
-          = 'Cancel And Go Back'
+.container
+  .box class="no-padding-top"
+    p#notice= notice
+    .padding-bottom
+      div class="box event-bg img-rounded padding"
+        .title Editing Event
+        hr
+        = render 'form', event: @event
+        .event-buttons
+          = link_to events_path
+            div class="btn"
+              = 'Cancel And Go Back'

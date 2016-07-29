@@ -1,17 +1,27 @@
 @import 'https://fonts.googleapis.com/css?family=Slabo+27px';
 @import "hocus-pocus/scss/colors";
 
+// colors
+$hr-color: #646464;
+$link-hover-color: #000000;
+$link-hover-text-color: #FFFFFF;
+$bg-color:  #D5C89D;
+$footer-text-color: #FFFFFF;
+$event-bg-color: lighten($bg-color, 10%);
+$footer-color: #000000;
+$logo-red: #aa2525;
+
 $rwd-type: desktop-first;
 $rwd-map: (mobile: 480px, tablet: 720px, desktop: 1201px);
 
 $grid-container: 70rem;
-$ui-border-radius: 3px;
+$ui-border-radius: 5px;
 $spacing-unit: 2em;
 $vertical-align-body: 16 !default;
 
 $navbar-background: transparent;
-$navbar-link-background: $color-black;
-$navbar-link-color: $color-black;
+$navbar-link-background: $link-hover-color;
+$navbar-link-color: $link-hover-color;
 $navbar-color: $color-grey;
 $sticky-footer-height: 200px;
 
@@ -22,6 +32,9 @@ $font-size-small: 16 !default;
 $font-size-base: 18 !default;
 $font-size-lead: 20 !default;
 $font-size-btn: $font-size-base !default;
+
+$table-zebra-background: $bg-color;
+$list-menu-background: $navbar-link-background;
 
 $sticky-footer-height: 6em;
 
@@ -39,17 +52,18 @@ $spacing-map: (
 @import "hocus-pocus";
 
 body {
-  background-image: url(asset-path("background-image.png"));
+  background-color: $bg-color;
+  background-size: cover;
 }
 
 .logo {
   padding: 25px;
-  @include img-replace($logo-image, 200px, 40px);
+  @include img-replace($logo-image, 220px, 40px);
 }
 
 .sticky-footer {
-  background-color: black;
-  color: white;
+  background-color: $footer-color;
+  color: $footer-text-color;
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -63,6 +77,10 @@ a:link {
 
 a {
   color: $color-black;
+
+  &:hover {
+    color: $color-white;
+  }
 }
 
 .event-buttons {
@@ -85,4 +103,33 @@ a {
 .title {
   font-size: 25px;
   font-weight: bold;
+}
+
+.btn {
+  color: $link-hover-text-color;
+
+  &:hover {
+    background-color: lighten($link-hover-color, 20%) !important;
+    border-color: lighten($link-hover-color, 20%) !important;
+    color: $link-hover-text-color;
+  }
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $hr-color;
+    margin: 1em 0;
+    padding: 0;
+}
+
+button {
+  border-color: $link-hover-color !important;
+  color: $link-hover-text-color;
+
+  &:hover {
+    background-color: lighten($link-hover-color, 5%) !important;
+    border-color: lighten($link-hover-color, 5%) !important;
+  }
 }
