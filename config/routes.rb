@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   resources :users
   root to: "static_pages#landing_page"
   resources :events do
-    post :join, on: :member
-    post :leave, on: :member
+    member do
+      post :join
+      post :leave
+    end
+    resources :games, except: [:index] do
+      collection do
+        get "search"
+      end
+    end
   end
 end

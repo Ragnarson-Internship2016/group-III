@@ -1,0 +1,37 @@
+p Game Search Result:
+- if @found_games.nil? || @found_games.empty?
+    .box-negative
+      | No results were found
+- else
+  table.table-zebra
+    colgroup
+      col class="2/5"
+      col class="1/5"
+      col class="1/5"
+      col class="1/5"
+    thead
+      tr
+        th
+          | Name
+        th
+          | Minimum players
+        th
+          | Maximum players
+        th
+          |
+    tbody
+      - @found_games.each do |found_game|
+        tr
+          td
+            = found_game.name
+          td
+            = found_game.min_players
+          td
+            = found_game.max_players
+          td
+            = simple_form_for([@event, found_game]) do |f|
+              = f.hidden_field :name
+              = f.hidden_field :description
+              = f.hidden_field :min_players
+              = f.hidden_field :max_players
+              = f.button :submit, "Add game", class: 'button-margin-top float-right'

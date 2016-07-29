@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
+  belongs_to :event
+
   validates :name, presence: true, length: { minimum: 2 }
   validates :min_players, presence: true, numericality: { greater_than: 0 }
   validates :max_players, presence: true, numericality: { less_than: 100 }

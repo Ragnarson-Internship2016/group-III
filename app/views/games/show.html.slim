@@ -1,0 +1,28 @@
+.container class="bg-white"
+  .box
+    .title
+      = @game.name
+    hr
+    p.big
+      = @game.description.tr('&#10;', '')
+    table
+      colgroup
+        col class="2/8"
+        col class="2/8"
+        col class="3/8"
+      tr
+        td
+          | Minimum number of players:
+        td
+          = @game.min_players
+        td
+          - if policy(@game).edit?
+              = link_to "Edit", edit_event_game_path(@event, @game), class: 'btn float-right'
+      tr
+        td
+          | Maximum number of players:
+        td
+          = @game.max_players
+        td
+          - if policy(@game).destroy?
+            = link_to "Remove", event_game_path(@event, @game), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn float-right'

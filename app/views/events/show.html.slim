@@ -39,3 +39,46 @@ p#notice= notice
     = link_to events_path
       div class="btn"
         = 'Back'
+    - if policy(@event).event_host?
+      = link_to "Add Game", new_event_game_path(@event), class: 'btn float-right'
+
+.container
+  - if @event.games.empty?
+    .box-informative
+      | There is no games added, yet.
+  - unless @event.games.empty?
+    table
+      colgroup
+        col class="2/7"
+        col class="1/7"
+        col class="1/7"
+        col class="1/7"
+        col class="1/7"
+        col class="1/7"
+      thead
+        tr
+          th
+            | Name
+          th
+            | Minimum players
+          th
+            | Maximum players
+          th colspan="2"
+      tbody
+        - @event.games.each do |game|
+          tr
+            td
+              = game.name
+            td
+              = game.min_players
+            td
+              = game.max_players
+            td
+              = link_to "Show", event_game_path(@event, game), class: 'btn float-right'
+              - if policy(game).edit?
+                td
+                  = link_to "Edit", edit_event_game_path(@event, game), class: 'btn float-right'
+              - if policy(game).destroy?
+                td
+                  = link_to "Remove", event_game_path(@event, game), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn float-right'
+.grid

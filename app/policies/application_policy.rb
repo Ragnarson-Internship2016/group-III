@@ -6,48 +6,13 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index?
-    false
+  def game_host?
+    record.event.users.includes(user)
   end
 
-  def show?
-    scope.where(:id => record.id).exists?
-  end
-
-  def create?
-    false
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    false
-  end
-
-  def edit?
-    update?
-  end
-
-  def destroy?
-    false
-  end
-
-  def scope
-    Pundit.policy_scope!(user, record.class)
-  end
-
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope
-    end
+  def event_host?
+    return false unless user
+    UserEvent.find_by(user_id: user.id, event_id: record.id, owner: true)
   end
 end
+

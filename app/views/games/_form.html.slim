@@ -1,0 +1,19 @@
+= simple_form_for([@event, @game]) do |f|
+  .box-negative
+    = f.error_notification
+  form class="form-stacked"
+    .form-inputs.form-stacked
+      label for="name" Name:
+      = f.text_field :name
+      label for="description" Description:
+      = f.input_field :description
+      .grid.grid-bottom
+        .grid-item class="1/3"
+          label for="minimum players" Minimum Players:
+          = f.input_field :min_players
+        .grid-item class="1/3"
+          label for="maximum players" Maximum Players:
+          = f.input_field :max_players
+        .grid-item class="1/3"
+          .form-actions
+            = f.button :submit

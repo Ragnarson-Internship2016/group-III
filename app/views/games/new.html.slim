@@ -1,0 +1,12 @@
+.container
+  .box
+    .title Add Games
+    hr
+    h5 Search for board games in our library
+    = form_tag(search_event_games_path(@event), method: :get, remote: true) do
+      = label_tag "board_game_name", "Name of the game:"
+      = text_field_tag "board_game_name"
+      = submit_tag("Search")
+    .game_search_results
+    h5 Add custom board game
+    = render "form"

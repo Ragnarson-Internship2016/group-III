@@ -1,0 +1,15 @@
+@import "_defaults.scss";
+
+textarea {
+  resize: none;
+  width: 600px;
+  height: 200px;
+}
+
+.button-margin-left {
+  margin-left: 20px !important;
+}
+
+p.big {
+  line-height: 170%;
+}

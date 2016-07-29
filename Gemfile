@@ -16,6 +16,7 @@ gem 'factory_girl_rails', "~> 4.0"
 gem 'devise'
 gem 'simple_form'
 gem 'pundit'
+gem 'bgg'
 
 group :test do
   gem 'shoulda-matchers', '~>3.1'
