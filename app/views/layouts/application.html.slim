@@ -10,7 +10,9 @@ html
     = render 'layouts/header' unless @skip_header
     .margin-left
       - unless alert.blank?
-        p.alert = alert
+        .container
+          .box-informative
+            p.alert = alert
     div class="margin no-padding"
       = yield
     = render 'layouts/footer' unless @skip_footer
